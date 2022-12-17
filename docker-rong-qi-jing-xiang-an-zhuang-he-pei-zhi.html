@@ -1,0 +1,349 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>docker容器镜像安装和配置 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="docker-shi-zhan-zi-yuan-peiehe-shu-ju-chi-jiu-hua.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    README
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="docker-rong-qi-jing-xiang-an-zhuang-he-pei-zhi.html">
+            
+                <a href="docker-rong-qi-jing-xiang-an-zhuang-he-pei-zhi.html">
+            
+                    
+                    docker容器镜像安装和配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="docker-shi-zhan-zi-yuan-peiehe-shu-ju-chi-jiu-hua.html">
+            
+                <a href="docker-shi-zhan-zi-yuan-peiehe-shu-ju-chi-jiu-hua.html">
+            
+                    
+                    docker实战资源配额和数据持久化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="chuang-jian-si-you-jing-xiang-cang-ku-he-jia-mi-ren-zheng.html">
+            
+                <a href="chuang-jian-si-you-jing-xiang-cang-ku-he-jia-mi-ren-zheng.html">
+            
+                    
+                    创建私有镜像仓库和加密认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="page-2.html">
+            
+                <a href="page-2.html">
+            
+                    
+                    Page 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >docker容器镜像安装和配置</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="docker&#x5BB9;&#x5668;&#x955C;&#x50CF;&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;">docker&#x5BB9;&#x5668;&#x955C;&#x50CF;&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;</h1>
+<h2 id="docker&#x5BB9;&#x5668;&#x955C;&#x50CF;&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;">docker&#x5BB9;&#x5668;&#x955C;&#x50CF;&#x5B89;&#x88C5;&#x548C;&#x914D;&#x7F6E;</h2>
+<p>namespace &#x9694;&#x79BB; </p>
+<p>cgroup &#x8D44;&#x6E90;&#x914D;&#x989D;</p>
+<h3 id="&#x5B89;&#x88C5;&#x6E90;-">&#x5B89;&#x88C5;&#x6E90; </h3>
+<p>wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank">http://mirrors.aliyun.com/repo/Centos-7.repo</a></p>
+<p>yum-config-manager --add-repo <a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo" target="_blank">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></p>
+<h3 id="&#x5B89;&#x88C5;docker&#x4F9D;&#x8D56;">&#x5B89;&#x88C5;docker&#x4F9D;&#x8D56;</h3>
+<p>yum install -y yum-utils device-mapper-persistent-data lvm2</p>
+<h3 id="&#x57FA;&#x7840;&#x8F6F;&#x4EF6;&#x5305;-">&#x57FA;&#x7840;&#x8F6F;&#x4EF6;&#x5305; </h3>
+<p>yum install -y wget net-tools nfs-utils lrzsz gcc gcc-c++ make cmake libxml2-devel openssl-devel curl curl-devel unzip sudo ntp libaio-devel wget vim ncurses-devel autoconf automake zlib-devel python-devel epel-release openssh-server socat ipvsadm conntrack ntpdate</p>
+<h3 id="&#x5B89;&#x88C5;docker-ce-">&#x5B89;&#x88C5;docker-ce </h3>
+<p>yum install docker-ce docker-ce-cli containerd.io -y</p>
+<p>docker-ce-cli &#x4F5C;&#x7528;&#x662F; docker &#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;&#x5305; </p>
+<p>containerd.io &#x4F5C;&#x7528;&#x662F;&#x5BB9;&#x5668;&#x63A5;&#x53E3;&#x76F8;&#x5173;&#x5305; </p>
+<p>yum info &#x8F6F;&#x4EF6;&#x5305;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x4E00;&#x4E2A;&#x5305;&#x7684;&#x5177;&#x4F53;&#x4F5C;&#x7528;</p>
+<p>systemctl start docker &amp;&amp; systemctl enable docker</p>
+<h3 id="&#x67E5;&#x770B;docker&#x7248;&#x672C;&#x4FE1;&#x606F;-">&#x67E5;&#x770B;docker&#x7248;&#x672C;&#x4FE1;&#x606F; </h3>
+<p>docker version</p>
+<h3 id="&#x5F00;&#x542F;&#x5305;&#x8F6C;&#x53D1;&#x529F;&#x80FD;&#x548C;&#x4FEE;&#x6539;&#x5185;&#x6838;&#x53C2;&#x6570;">&#x5F00;&#x542F;&#x5305;&#x8F6C;&#x53D1;&#x529F;&#x80FD;&#x548C;&#x4FEE;&#x6539;&#x5185;&#x6838;&#x53C2;&#x6570;</h3>
+<pre><code>modprobe br_netfilter echo &quot;modprobe br_netfilter&quot; &gt;&gt; /etc/profile
+
+cat &gt; /etc/sysctl.d/docker.conf &lt;&lt;EOF 
+net.bridge.bridge-nf-call-ip6tables = 1 
+net.bridge.bridge-nf-call-iptables = 1 
+net.ipv4.ip_forward = 1 
+EOF
+sysctl -p /etc/sysctl.d/docker.conf
+systemctl restart docker
+</code></pre><h3 id="&#x914D;&#x7F6E;&#x955C;&#x50CF;&#x52A0;&#x901F;&#x5668;-">&#x914D;&#x7F6E;&#x955C;&#x50CF;&#x52A0;&#x901F;&#x5668; </h3>
+<pre><code>tee /etc/docker/daemon.json &lt;&lt; &apos;EOF&apos; 
+{ &quot;registry-mirrors&quot;:[&quot;https://rsbud4vc.mirror.aliyuncs.com&quot;,&quot;https://registry.docker-cn.com&quot;,&quot;https://docker.mirrors.ustc.edu.cn&quot;,&quot;https://dockerhub.azk8s.cn&quot;,&quot;http://hub-mirror.c.163.com&quot;,&quot;http://qtid6917.mirror.aliyuncs.com&quot;,&quot;https://rncxm540.mirror.aliyuncs. com&quot;,&quot;https://e9yneuy4.mirror.aliyuncs.com&quot;] } 
+EOF
+</code></pre><p>&#x91CD;&#x542F; docker &#x670D;&#x52A1;&#x4F7F;&#x914D;&#x7F6E;&#x751F;&#x6548;</p>
+<pre><code>systemctl daemon-reload &amp;&amp; systemctl restart docker
+</code></pre><p>docker run -d -p 80:80 &#x6307;&#x5B9A;&#x5BBF;&#x4E3B;&#x673A;&#x7AEF;&#x53E3;&#x662F;80&#x548C;&#x5BB9;&#x5668;&#x7684;&#x7AEF;&#x53E3;80&#x8FDE;&#x63A5;&#xFF0C;&#x6620;&#x5C04; -P &#x5BBF;&#x4E3B;&#x673A;&#x968F;&#x673A;&#x7AEF;&#x53E3;&#x548C;&#x5BB9;&#x5668;&#x7AEF;&#x53E3;80&#x8FDE;&#x63A5;&#xFF0C;&#x6620;&#x5C04;</p>
+<p>docker exec -it container_id /bin/bash &#x8FDB;&#x5165;&#x5BB9;&#x5668;</p>
+<h3 id="docker-&#x7F51;&#x7EDC;&#x6A21;&#x5F0F;-">docker &#x7F51;&#x7EDC;&#x6A21;&#x5F0F; </h3>
+<p>bridge docker&#x9ED8;&#x8BA4;&#x7684;&#x7F51;&#x7EDC;&#x9A71;&#x52A8;</p>
+<p>host &#x76F4;&#x63A5;&#x501F;&#x7528;&#x5BBF;&#x4E3B;&#x673A;&#x7684;&#x7F51;&#x7EDC;</p>
+<p>none &#x6B64;&#x9A71;&#x52A8;&#x4E0D;&#x6784;&#x6210;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#xFF0C;&#x91C7;&#x7528;&#x4E86;none&#x7F51;&#x7EDC;&#x9A71;&#x52A8;&#xFF0C;&#x90A3;&#x4E48;&#x53EA;&#x80FD;&#x4F7F;&#x7528;loopback&#x7F51;&#x7EDC;&#x8BBE;&#x5907;&#xFF0C;&#x5BB9;&#x5668;&#x53EA;&#x80FD;&#x4F7F;&#x7528;127.0.0.1&#x7684;&#x672C;&#x673A;&#x7F51;&#x7EDC;</p>
+<p>container &#x8FD9;&#x4E2A;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BB9;&#x5668;&#x548C;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x7684;&#x4E00;&#x4E2A;&#x5BB9;&#x5668;&#x5171;&#x4EAB;&#x4E00;&#x4E2A;network namespace ,&#x800C;&#x4E0D;&#x662F;&#x548C;&#x5BBF;&#x4E3B;&#x673A;&#x5171;&#x4EAB;&#x3002;&#x548C;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x5BB9;&#x5668;&#x5171;&#x4EAB;ip,&#x7AEF;&#x53E3;&#x8303;&#x56F4;&#x3002;</p>
+<p>docker network list &#x67E5;&#x770B;docker&#x7F51;&#x7EDC; </p>
+<p>docker network inspect bridge &#x67E5;&#x770B;&#x7F51;&#x6865;&#x7684;&#x5B50;&#x7F51;&#x7F51;&#x7EDC;</p>
+<p>veth pair &#x6210;&#x5BF9;&#x51FA;&#x73B0;</p>
+<h3 id="brctl">brctl</h3>
+<p>yum install bridge-utils -y</p>
+<p>brctl show</p>
+<p>bridge&#x7684;docker0 &#x662F;&#x865A;&#x62DF;&#x51FA;&#x6765;&#x7684;&#x7F51;&#x6865;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x6CD5;&#x88AB;&#x5916;&#x90E8;&#x7684;&#x7F51;&#x7EDC;&#x8BBF;&#x95EE;&#x3002;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5728;&#x8FD0;&#x884C;&#x5BB9;&#x5668;&#x65F6;&#x901A;&#x8FC7;-p&#x548C;-P &#x53C2;&#x6570;&#x5C06;&#x5BB9;&#x5668;&#x7684;&#x7AEF;&#x53E3;&#x6620;&#x5C04;&#x5230;&#x5BBF;&#x4E3B;&#x673A;&#x7684;&#x7AEF;&#x53E3;&#x3002;</p>
+<p>docker&#x91C7;&#x7528;&#x7684;nat&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5C06;&#x5BB9;&#x5668;&#x5185;&#x90E8;&#x7684;&#x670D;&#x52A1;&#x76D1;&#x542C;&#x7AEF;&#x53E3;&#x4E0E;&#x5BBF;&#x4E3B;&#x673A;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;port&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#xFF0C;&#x4F7F;&#x5F97;&#x5BBF;&#x4E3B;&#x673A;&#x5916;&#x90E8;&#x53EF;&#x4EE5;&#x5C06;&#x7F51;&#x7EDC;&#x62A5;&#x6587;&#x53D1;&#x9001;&#x5230;&#x5BB9;&#x5668;&#x3002;</p>
+<h3 id="&#x57FA;&#x4E8E;dockerfile&#x6784;&#x5EFA;&#x955C;&#x50CF;">&#x57FA;&#x4E8E;dockerfile&#x6784;&#x5EFA;&#x955C;&#x50CF;</h3>
+<pre><code>ROM centos
+MAINTAINER xuegod-Pod 
+RUN yum install wget -y 
+RUN yum install nginx -y 
+COPY index.html /usr/share/nginx/html/ 
+EXPOSE 80 
+ENTRYPOINT [&quot;/usr/sbin/nginx&quot;,&quot;-g&quot;,&quot;daemon off;&quot;]
+docker build -t=&quot;xxx/yyy:v1&quot; .
+docker run -d -p 80 --name xxx xx/yy:v1
+</code></pre><p>CMD&#xFF1A;&#x4E3A;&#x542F;&#x52A8;&#x7684;&#x5BB9;&#x5668;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x8981;&#x8FD0;&#x884C;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#xFF0C;&#x5BB9;&#x5668;&#x4E5F;&#x5C31;&#x7ED3;&#x675F;&#x3002;CMD &#x6307;&#x4EE4;&#x6307;&#x5B9A;&#x7684;&#x7A0B; &#x5E8F;&#x53EF;&#x88AB; docker run &#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x4E2D;&#x6307;&#x5B9A;&#x8981;&#x8FD0;&#x884C;&#x7684;&#x7A0B;&#x5E8F;&#x6240;&#x8986;&#x76D6;&#x3002;&#x5982;&#x679C; Dockerfile &#x4E2D;&#x5982;&#x679C;&#x5B58;&#x5728;&#x591A;&#x4E2A; CMD &#x6307;&#x4EE4;&#xFF0C;&#x4EC5;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x751F;&#x6548;&#x3002;</p>
+<p>ENTRYPOINT&#xFF1A; &#x7C7B;&#x4F3C;&#x4E8E; CMD &#x6307;&#x4EE4;&#xFF0C;&#x4F46;&#x5176;&#x4E0D;&#x4F1A;&#x88AB; docker run &#x7684;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x6307;&#x5B9A;&#x7684;&#x6307;&#x4EE4;&#x6240;&#x8986;&#x76D6;&#xFF0C; &#x800C;&#x4E14;&#x8FD9;&#x4E9B;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x5F53;&#x4F5C;&#x53C2;&#x6570;&#x9001;&#x7ED9; ENTRYPOINT &#x6307;&#x4EE4;&#x6307;&#x5B9A;&#x7684;&#x7A0B;&#x5E8F;&#x3002;&#x5982;&#x679C; Dockerfile &#x4E2D;&#x5982;&#x679C; &#x5B58;&#x5728;&#x591A;&#x4E2A; ENTRYPOINT &#x6307;&#x4EE4;&#xFF0C;&#x4EC5;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x751F;&#x6548;&#x3002;&#x5982;&#x679C;&#x8FD0;&#x884C; docker run &#x65F6;&#x4F7F;&#x7528;&#x4E86; --entrypoint &#x9009;&#x9879;&#xFF0C;&#x5C06;&#x8986;&#x76D6; CMD &#x6307;&#x4EE4;&#x6307;&#x5B9A;&#x7684;&#x7A0B;&#x5E8F;&#x3002;&#x5982;&#x679C; Dockerfile &#x4E2D;&#x5982;&#x679C;&#x5B58;&#x5728;&#x591A;&#x4E2A; ENTRYPOINT &#x6307;&#x4EE4;&#xFF0C; &#x4EC5;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x751F;&#x6548;&#x3002;</p>
+<p>docker run -c &#x4F20;&#x53C2;</p>
+<p>HEALTHCHECK&#xFF1A;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x67D0;&#x4E2A;&#x7A0B;&#x5E8F;&#x6216;&#x8005;&#x6307;&#x4EE4;&#x6765;&#x76D1;&#x63A7; docker &#x5BB9;&#x5668;&#x670D;&#x52A1;&#x7684;&#x8FD0;&#x884C;&#x72B6;&#x6001;</p>
+<p>VOLUME&#xFF1A;&#x5B9A;&#x4E49;&#x533F;&#x540D;&#x6570;&#x636E;&#x5377;&#x3002;&#x5728;&#x542F;&#x52A8;&#x5BB9;&#x5668;&#x65F6;&#x5FD8;&#x8BB0;&#x6302;&#x8F7D;&#x6570;&#x636E;&#x5377;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x6302;&#x8F7D;&#x5230;&#x533F;&#x540D;&#x5377;&#x3002; &#x907F;&#x514D;&#x91CD;&#x8981;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x5BB9;&#x5668;&#x91CD;&#x542F;&#x800C;&#x4E22;&#x5931;&#xFF0C;&#x8FD9;&#x662F;&#x975E;&#x5E38;&#x81F4;&#x547D;&#x7684;&#x3002; &#x907F;&#x514D;&#x5BB9;&#x5668;&#x4E0D;&#x65AD;&#x53D8;&#x5927;</p>
+<pre><code>#!/bin/bash 
+rm -rf /run/httpd/* 
+exec /usr/sbin/apachectl -D FOREGROUND #&#x542F;&#x52A8;&#x5BB9;&#x5668;&#x65F6;&#x542F;&#x52A8;&#x670D;&#x52A1;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: README">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="docker-shi-zhan-zi-yuan-peiehe-shu-ju-chi-jiu-hua.html" class="navigation navigation-next " aria-label="Next page: docker实战资源配额和数据持久化">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"docker容器镜像安装和配置","level":"1.2","depth":1,"next":{"title":"docker实战资源配额和数据持久化","level":"1.3","depth":1,"path":"docker-shi-zhan-zi-yuan-peiehe-shu-ju-chi-jiu-hua.md","ref":"docker-shi-zhan-zi-yuan-peiehe-shu-ju-chi-jiu-hua.md","articles":[]},"previous":{"title":"README","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docker-rong-qi-jing-xiang-an-zhuang-he-pei-zhi.md","mtime":"2022-12-17T20:26:54.738Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-12-17T20:27:59.600Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
