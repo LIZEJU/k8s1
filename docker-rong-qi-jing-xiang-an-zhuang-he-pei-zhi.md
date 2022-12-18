@@ -2,9 +2,9 @@
 
 ## docker容器镜像安装和配置
 
-namespace 隔离&#x20;
+namespace 隔离 (容器的进程，网络，消息，文件系统，主机名)
 
-cgroup 资源配额
+cgroup 资源配额（对资源配额和度量--cpu,men,io）
 
 ### 安装源&#x20;
 
